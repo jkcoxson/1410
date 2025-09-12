@@ -6,6 +6,7 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <tuple>
 
 Result<OutputDirector, std::string> open_file(std::ifstream& input_stream) {
     std::string input_path;
