@@ -1,0 +1,2 @@
+make
+./rational <newinput.txt

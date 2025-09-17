@@ -2,3 +2,4 @@
 bin
 p2/*.txt
 *.zip
+*.o
