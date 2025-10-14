@@ -5,3 +5,4 @@ p2/*.txt
 *.o
 p4/rational
 p5/MyComplex
+p6/Sudoku
