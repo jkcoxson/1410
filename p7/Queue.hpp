@@ -8,6 +8,7 @@ template <typename T> class Queue {
     Queue() : _ptr(nullptr), _len(0) {}
     void enqueue(T val) {
         Node<T>* newNode = new Node<T>(val);
+        newNode->setNext(nullptr);
 
         if (_ptr == nullptr) {
             _ptr = newNode;

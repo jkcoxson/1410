@@ -12,19 +12,20 @@ template <typename T> class List {
     List() : _len(0), _ptr(nullptr) {}
 
     void insert(T val) {
-        Node<T>* newNode = new Node<T>(val);
+    Node<T>* newNode = new Node<T>(val);
+    newNode->setNext(nullptr);
 
-        if (_ptr == nullptr) {
-            _ptr = newNode;
-        } else {
-            Node<T>* temp = _ptr;
-            while (temp->getNext() != nullptr) {
-                temp = temp->getNext();
-            }
-            temp->setNext(newNode);
+    if (_ptr == nullptr) {
+        _ptr = newNode;
+    } else {
+        Node<T>* temp = _ptr;
+        while (temp->getNext() != nullptr) {
+            temp = temp->getNext();
         }
-        _len++;
+        temp->setNext(newNode);
     }
+    _len++;
+}
 
     int count() { return _len; }
 
@@ -88,9 +89,15 @@ template <typename T> class List {
     }
 
     void reset() {
-        _ptr = NULL;
-        _len = 0;
+    Node<T>* temp = _ptr;
+    while (temp != nullptr) {
+        Node<T>* next = temp->getNext();
+        delete temp;
+        temp = next;
     }
+    _ptr = nullptr;
+    _len = 0;
+}
 
   private:
     int      _len;
